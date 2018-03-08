@@ -1,4 +1,4 @@
-# VSPRO
-personal
+# DISK_S
+
 利用Qt实现的
 简单的磁盘调度模拟程序
