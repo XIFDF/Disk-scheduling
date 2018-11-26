@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'disk_scheduling.ui'
 **
-** Created by: Qt User Interface Compiler version 5.7.0
+** Created by: Qt User Interface Compiler version 5.10.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -146,27 +146,27 @@ public:
 
     void retranslateUi(QMainWindow *disk_schedulingClass)
     {
-        disk_schedulingClass->setWindowTitle(QApplication::translate("disk_schedulingClass", "disk_scheduling", 0));
-        pushButton->setText(QApplication::translate("disk_schedulingClass", "\345\205\210\346\235\245\345\205\210\346\234\215\345\212\241(FCFS)", 0));
-        pushButton_2->setText(QApplication::translate("disk_schedulingClass", "\346\234\200\347\237\255\345\257\273\351\201\223\346\227\266\351\227\264\344\274\230\345\205\210", 0));
-        pushButton_3->setText(QApplication::translate("disk_schedulingClass", "\346\211\253\346\217\217\347\256\227\346\263\225(SCAN)", 0));
-        pushButton_4->setText(QApplication::translate("disk_schedulingClass", "\345\276\252\347\216\257\347\256\227\346\263\225(CSCAN)", 0));
-        pushButton_5->setText(QApplication::translate("disk_schedulingClass", "\346\217\222\345\205\245", 0));
-        radioButton->setText(QApplication::translate("disk_schedulingClass", "\344\273\216\351\207\214\345\210\260\345\244\226", 0));
-        radioButton_2->setText(QApplication::translate("disk_schedulingClass", "\344\273\216\345\244\226\345\210\260\351\207\214", 0));
-        label->setText(QApplication::translate("disk_schedulingClass", "\347\243\201\345\244\264\345\275\223\345\211\215\346\226\271\345\220\221:", 0));
-        label_2->setText(QApplication::translate("disk_schedulingClass", "\345\271\263\345\235\207\345\257\273\351\201\223\346\225\260:", 0));
-        label_3->setText(QApplication::translate("disk_schedulingClass", "\350\260\203\345\272\246\347\256\227\346\263\225:", 0));
-        label_4->setText(QApplication::translate("disk_schedulingClass", "\346\217\222\345\205\245\350\256\277\351\227\256\345\272\217\345\210\227:", 0));
-        label_5->setText(QApplication::translate("disk_schedulingClass", "\350\256\277\351\227\256\351\241\272\345\272\217", 0));
-        label_6->setText(QApplication::translate("disk_schedulingClass", "\350\260\203\345\272\246\347\273\223\346\236\234", 0));
+        disk_schedulingClass->setWindowTitle(QApplication::translate("disk_schedulingClass", "disk_scheduling", nullptr));
+        pushButton->setText(QApplication::translate("disk_schedulingClass", "\345\205\210\346\235\245\345\205\210\346\234\215\345\212\241(FCFS)", nullptr));
+        pushButton_2->setText(QApplication::translate("disk_schedulingClass", "\346\234\200\347\237\255\345\257\273\351\201\223\346\227\266\351\227\264\344\274\230\345\205\210", nullptr));
+        pushButton_3->setText(QApplication::translate("disk_schedulingClass", "\346\211\253\346\217\217\347\256\227\346\263\225(SCAN)", nullptr));
+        pushButton_4->setText(QApplication::translate("disk_schedulingClass", "\345\276\252\347\216\257\347\256\227\346\263\225(CSCAN)", nullptr));
+        pushButton_5->setText(QApplication::translate("disk_schedulingClass", "\346\217\222\345\205\245", nullptr));
+        radioButton->setText(QApplication::translate("disk_schedulingClass", "\344\273\216\351\207\214\345\210\260\345\244\226", nullptr));
+        radioButton_2->setText(QApplication::translate("disk_schedulingClass", "\344\273\216\345\244\226\345\210\260\351\207\214", nullptr));
+        label->setText(QApplication::translate("disk_schedulingClass", "\347\243\201\345\244\264\345\275\223\345\211\215\346\226\271\345\220\221:", nullptr));
+        label_2->setText(QApplication::translate("disk_schedulingClass", "\345\271\263\345\235\207\345\257\273\351\201\223\346\225\260:", nullptr));
+        label_3->setText(QApplication::translate("disk_schedulingClass", "\350\260\203\345\272\246\347\256\227\346\263\225:", nullptr));
+        label_4->setText(QApplication::translate("disk_schedulingClass", "\346\217\222\345\205\245\350\256\277\351\227\256\345\272\217\345\210\227:", nullptr));
+        label_5->setText(QApplication::translate("disk_schedulingClass", "\350\256\277\351\227\256\351\241\272\345\272\217", nullptr));
+        label_6->setText(QApplication::translate("disk_schedulingClass", "\350\260\203\345\272\246\347\273\223\346\236\234", nullptr));
         label_7->setText(QString());
-        label_8->setText(QApplication::translate("disk_schedulingClass", "\346\234\200\345\205\210\350\256\277\351\227\256\347\243\201\351\201\223\357\274\232", 0));
+        label_8->setText(QApplication::translate("disk_schedulingClass", "\346\234\200\345\205\210\350\256\277\351\227\256\347\243\201\351\201\223\357\274\232", nullptr));
         label_9->setText(QString());
-        pushButton_8->setText(QApplication::translate("disk_schedulingClass", "\346\233\264\346\224\271", 0));
+        pushButton_8->setText(QApplication::translate("disk_schedulingClass", "\346\233\264\346\224\271", nullptr));
         label_10->setText(QString());
-        pushButton_6->setText(QApplication::translate("disk_schedulingClass", "\351\232\217\346\234\272\347\224\237\346\210\220", 0));
-        pushButton_7->setText(QApplication::translate("disk_schedulingClass", "\346\270\205\347\251\272", 0));
+        pushButton_6->setText(QApplication::translate("disk_schedulingClass", "\351\232\217\346\234\272\347\224\237\346\210\220", nullptr));
+        pushButton_7->setText(QApplication::translate("disk_schedulingClass", "\346\270\205\347\251\272", nullptr));
     } // retranslateUi
 
 };

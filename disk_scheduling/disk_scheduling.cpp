@@ -21,12 +21,12 @@ disk_scheduling::disk_scheduling(QWidget *parent)
 
 	connect(ui.pushButton_5, SIGNAL(clicked()), this, SLOT(addid()));
 	connect(ui.pushButton_8, SIGNAL(clicked()), this, SLOT(setbegin()));
-	connect(ui.pushButton,	 SIGNAL(clicked()), this, SLOT(FCFS()));
+	connect(ui.pushButton, SIGNAL(clicked()), this, SLOT(FCFS()));
 	connect(ui.pushButton_2, SIGNAL(clicked()), this, SLOT(SSTF()));
 	connect(ui.pushButton_3, SIGNAL(clicked()), this, SLOT(SCAN()));
 	connect(ui.pushButton_4, SIGNAL(clicked()), this, SLOT(CSCAN()));
-	connect(ui.radioButton,  SIGNAL(clicked()), this, SLOT(direction_set()));
-	connect(ui.radioButton_2,SIGNAL(clicked()), this, SLOT(direction_set()));
+	connect(ui.radioButton, SIGNAL(clicked()), this, SLOT(direction_set()));
+	connect(ui.radioButton_2, SIGNAL(clicked()), this, SLOT(direction_set()));
 	connect(ui.pushButton_6, SIGNAL(clicked()), this, SLOT(getnum()));
 	connect(ui.pushButton_7, SIGNAL(clicked()), this, SLOT(clearall()));
 
@@ -64,7 +64,7 @@ void disk_scheduling::direction_set()
 		direction = inside_to_out;
 		ui.label_10->setText(QStringLiteral("从里到外"));
 	}
-	else if("radioButton_2" == get) {
+	else if ("radioButton_2" == get) {
 		direction = out_to_inside;
 		ui.label_10->setText(QStringLiteral("从外到里"));
 	}
@@ -73,11 +73,11 @@ void disk_scheduling::direction_set()
 void disk_scheduling::FCFS()
 {
 	if (0 != begin) {
-	ui.tableWidget->setRowCount(0);
-	int disk = begin;
-	for (int i = 0; i < list.count(); ++i) {
+		ui.tableWidget->setRowCount(0);
+		int disk = begin;
+		for (int i = 0; i < list.count(); ++i) {
 			int Row = ui.tableWidget->rowCount();
-			ui.tableWidget->insertRow(Row);	
+			ui.tableWidget->insertRow(Row);
 			QTableWidgetItem *item = new QTableWidgetItem(QString::number(list.at(i)));
 			item->setTextAlignment(Qt::AlignCenter);
 			ui.tableWidget->setItem(i, 0, item);
@@ -86,8 +86,8 @@ void disk_scheduling::FCFS()
 			disk = list.at(i);
 			ui.tableWidget->setItem(i, 1, new QTableWidgetItem(QString::number(distance)));
 		}
-	ui.label_7->setText(QString::number(distance_sum / list.count()));
-	distance_sum = 0;
+		ui.label_7->setText(QString::number(distance_sum / list.count()));
+		distance_sum = 0;
 	}
 }
 
@@ -112,7 +112,7 @@ void disk_scheduling::SSTF()
 		for (int i = 0; i < slist.count(); i++) {
 			int Row = ui.tableWidget->rowCount();
 			ui.tableWidget->insertRow(Row);
-			if (right >= slist.count() || 
+			if (right >= slist.count() ||
 				(left >= 0 && qAbs(disk - slist.at(left) < qAbs(disk - slist.at(right)))))
 			{
 				QTableWidgetItem *item = new QTableWidgetItem(QString::number(slist.at(left)));
@@ -139,31 +139,31 @@ void disk_scheduling::SSTF()
 		distance_sum = 0;
 	}
 }
-	//第二种算法
-	/*slist = list;
-	if (0 != begin) {
-		for (int i = 0; i < list.count(); ++i) {
-			int dmin = qAbs(disk - slist.at(0)), min = 0;//最短寻道距离  最短寻道号下标
-			for(int j = 0; j < slist.count() - 1; j++)
-			{
-				if(dmin > qAbs(disk - slist.at(j + 1))){
-					dmin = qAbs(disk - slist.at(j + 1));
-					min = j + 1;
-				}
-			}
-			int Row = ui.tableWidget->rowCount();
-			ui.tableWidget->insertRow(Row);
-			QTableWidgetItem *item = new QTableWidgetItem(QString::number(slist.at(min)));
-			item->setTextAlignment(Qt::AlignCenter);
-			ui.tableWidget->setItem(i, 0, item);
-			distance_sum += dmin;
-			disk = slist.at(min);
-			ui.tableWidget->setItem(i, 1, new QTableWidgetItem(QString::number(dmin)));
-			slist.removeAt(min);
-		}
-		ui.label_7->setText(QString::number(distance_sum / list.count()));
-		distance_sum = 0;
-	}*/
+//第二种算法
+/*slist = list;
+if (0 != begin) {
+for (int i = 0; i < list.count(); ++i) {
+int dmin = qAbs(disk - slist.at(0)), min = 0;//最短寻道距离  最短寻道号下标
+for(int j = 0; j < slist.count() - 1; j++)
+{
+if(dmin > qAbs(disk - slist.at(j + 1))){
+dmin = qAbs(disk - slist.at(j + 1));
+min = j + 1;
+}
+}
+int Row = ui.tableWidget->rowCount();
+ui.tableWidget->insertRow(Row);
+QTableWidgetItem *item = new QTableWidgetItem(QString::number(slist.at(min)));
+item->setTextAlignment(Qt::AlignCenter);
+ui.tableWidget->setItem(i, 0, item);
+distance_sum += dmin;
+disk = slist.at(min);
+ui.tableWidget->setItem(i, 1, new QTableWidgetItem(QString::number(dmin)));
+slist.removeAt(min);
+}
+ui.label_7->setText(QString::number(distance_sum / list.count()));
+distance_sum = 0;
+}*/
 
 void disk_scheduling::SCAN()
 {
@@ -178,8 +178,8 @@ void disk_scheduling::SCAN()
 				left = i - 1;
 				break;
 			}
-			else { 
-				left = slist.count() - 1; 
+			else {
+				left = slist.count() - 1;
 				right = slist.count();
 			}
 		}
@@ -319,7 +319,7 @@ void disk_scheduling::CSCAN()
 
 void disk_scheduling::getnum()
 {
-	qsrand(QTime(0, 0, 0).secsTo(QTime::currentTime()));
+	qsrand((quint32)time(0));
 	for (int i = 0; i < 10; i++)
 	{
 		int randnum = qrand() % 100;

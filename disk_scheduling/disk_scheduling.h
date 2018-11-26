@@ -3,7 +3,7 @@
 
 #include <QtWidgets/QMainWindow>
 #include "ui_disk_scheduling.h"
-#include <QTime>
+#include <ctime>
 
 class disk_scheduling : public QMainWindow
 {
