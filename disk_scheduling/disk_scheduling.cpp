@@ -40,7 +40,7 @@ disk_scheduling::~disk_scheduling()
 void disk_scheduling::addid() {
 	QString id = ui.lineEdit->text();
 	if (0 == id.isEmpty()) {
-        InsertTableWidget(ui.tableWidget_2, id);
+		InsertTableWidget(ui.tableWidget_2, id);
 		list << id.toInt();
 		ui.lineEdit->clear();
 	}
@@ -48,20 +48,20 @@ void disk_scheduling::addid() {
 
 void disk_scheduling::InsertTableWidget(QTableWidget * tableWidget, const int &number)
 {
-    int Row = tableWidget->rowCount();
-    tableWidget->insertRow(Row);
-    QTableWidgetItem *item = new QTableWidgetItem(QString::number(number));
-    item->setTextAlignment(Qt::AlignCenter);
-    tableWidget->setItem(Row, 0, item);
+	int Row = tableWidget->rowCount();
+	tableWidget->insertRow(Row);
+	QTableWidgetItem *item = new QTableWidgetItem(QString::number(number));
+	item->setTextAlignment(Qt::AlignCenter);
+	tableWidget->setItem(Row, 0, item);
 }
 
 void disk_scheduling::InsertTableWidget(QTableWidget * tableWidget, QString &number)
 {
-    int Row = tableWidget->rowCount();
-    tableWidget->insertRow(Row);
-    QTableWidgetItem *item = new QTableWidgetItem(number);
-    item->setTextAlignment(Qt::AlignCenter);
-    tableWidget->setItem(Row, 0, item);
+	int Row = tableWidget->rowCount();
+	tableWidget->insertRow(Row);
+	QTableWidgetItem *item = new QTableWidgetItem(number);
+	item->setTextAlignment(Qt::AlignCenter);
+	tableWidget->setItem(Row, 0, item);
 }
 
 
@@ -88,12 +88,12 @@ void disk_scheduling::direction_set()
 
 void disk_scheduling::FCFS()
 {
-    setbegin();
+	setbegin();
 	if (0 != begin) {
 		ui.tableWidget->setRowCount(0);
 		int disk = begin;
 		for (int i = 0; i < list.count(); ++i) {
-            InsertTableWidget(ui.tableWidget, list.at(i));
+			InsertTableWidget(ui.tableWidget, list.at(i));
 			int distance = qAbs(list.at(i) - disk);
 			distance_sum += distance;
 			disk = list.at(i);
@@ -106,7 +106,7 @@ void disk_scheduling::FCFS()
 
 void disk_scheduling::SSTF()
 {
-    setbegin();
+	setbegin();
 	if (0 != begin) {
 		ui.tableWidget->setRowCount(0);
 		slist = list;
@@ -127,7 +127,7 @@ void disk_scheduling::SSTF()
 			if (right >= slist.count() ||
 				(left >= 0 && qAbs(disk - slist.at(left) < qAbs(disk - slist.at(right)))))
 			{
-                InsertTableWidget(ui.tableWidget, slist.at(left));
+				InsertTableWidget(ui.tableWidget, slist.at(left));
 				int dmin = qAbs(disk - slist.at(left));
 				ui.tableWidget->setItem(i, 1, new QTableWidgetItem(QString::number(dmin)));
 				distance_sum += dmin;
@@ -135,7 +135,7 @@ void disk_scheduling::SSTF()
 				left--;
 			}
 			else {
-                InsertTableWidget(ui.tableWidget, slist.at(right));
+				InsertTableWidget(ui.tableWidget, slist.at(right));
 				int dmin = qAbs(disk - slist.at(right));
 				ui.tableWidget->setItem(i, 1, new QTableWidgetItem(QString::number(dmin)));
 				distance_sum += dmin;
@@ -150,7 +150,7 @@ void disk_scheduling::SSTF()
 
 void disk_scheduling::SCAN()
 {
-    setbegin();
+	setbegin();
 	if (direction != Undefined && 0 != begin) {
 		ui.tableWidget->setRowCount(0);
 		slist = list;
@@ -170,14 +170,14 @@ void disk_scheduling::SCAN()
 		if (direction == inside_to_out) {
 			int row = 0;
 			for (int i = right; i < slist.count(); i++, row++) {
-                InsertTableWidget(ui.tableWidget, slist.at(i));
+				InsertTableWidget(ui.tableWidget, slist.at(i));
 				int dmin = qAbs(disk - slist.at(i));
 				ui.tableWidget->setItem(row, 1, new QTableWidgetItem(QString::number(dmin)));
 				distance_sum += dmin;
 				disk = slist.at(i);
 			}
 			for (int i = left; i >= 0; i--, row++) {
-                InsertTableWidget(ui.tableWidget, slist.at(i));
+				InsertTableWidget(ui.tableWidget, slist.at(i));
 				int dmin = qAbs(disk - slist.at(i));
 				ui.tableWidget->setItem(row, 1, new QTableWidgetItem(QString::number(dmin)));
 				distance_sum += dmin;
@@ -189,14 +189,14 @@ void disk_scheduling::SCAN()
 		else {
 			int row = 0;
 			for (int i = left; i >= 0; i--, row++) {
-                InsertTableWidget(ui.tableWidget, slist.at(i));
+				InsertTableWidget(ui.tableWidget, slist.at(i));
 				int dmin = qAbs(disk - slist.at(i));
 				ui.tableWidget->setItem(row, 1, new QTableWidgetItem(QString::number(dmin)));
 				distance_sum += dmin;
 				disk = slist.at(i);
 			}
 			for (int i = right; i < slist.count(); i++, row++) {
-                InsertTableWidget(ui.tableWidget, slist.at(i));
+				InsertTableWidget(ui.tableWidget, slist.at(i));
 				int dmin = qAbs(disk - slist.at(i));
 				ui.tableWidget->setItem(row, 1, new QTableWidgetItem(QString::number(dmin)));
 				distance_sum += dmin;
@@ -210,7 +210,7 @@ void disk_scheduling::SCAN()
 
 void disk_scheduling::CSCAN()
 {
-    setbegin();
+	setbegin();
 	if (direction != Undefined && 0 != begin) {
 		if (direction != Undefined) {
 			ui.tableWidget->setRowCount(0);
@@ -231,14 +231,14 @@ void disk_scheduling::CSCAN()
 			if (direction == inside_to_out) {
 				int row = 0;
 				for (int i = right; i < slist.count(); i++, row++) {
-                    InsertTableWidget(ui.tableWidget, slist.at(i));
+					InsertTableWidget(ui.tableWidget, slist.at(i));
 					int dmin = qAbs(disk - slist.at(i));
 					ui.tableWidget->setItem(row, 1, new QTableWidgetItem(QString::number(dmin)));
 					distance_sum += dmin;
 					disk = slist.at(i);
 				}
 				for (int i = 0; i <= left; i++, row++) {
-                    InsertTableWidget(ui.tableWidget, slist.at(i));
+					InsertTableWidget(ui.tableWidget, slist.at(i));
 					int dmin = qAbs(disk - slist.at(i));
 					ui.tableWidget->setItem(row, 1, new QTableWidgetItem(QString::number(dmin)));
 					distance_sum += dmin;
@@ -250,14 +250,14 @@ void disk_scheduling::CSCAN()
 			else {
 				int row = 0;
 				for (int i = left; i >= 0; i--, row++) {
-                    InsertTableWidget(ui.tableWidget, slist.at(i));
+					InsertTableWidget(ui.tableWidget, slist.at(i));
 					int dmin = qAbs(disk - slist.at(i));
 					ui.tableWidget->setItem(row, 1, new QTableWidgetItem(QString::number(dmin)));
 					distance_sum += dmin;
 					disk = slist.at(i);
 				}
 				for (int i = slist.count() - 1; i >= right; i--, row++) {
-                    InsertTableWidget(ui.tableWidget, slist.at(i));
+					InsertTableWidget(ui.tableWidget, slist.at(i));
 					int dmin = qAbs(disk - slist.at(i));
 					ui.tableWidget->setItem(row, 1, new QTableWidgetItem(QString::number(dmin)));
 					distance_sum += dmin;
@@ -277,7 +277,7 @@ void disk_scheduling::getnum()
 	{
 		int randnum = qrand() % 100;
 		if (randnum != 0) {
-            InsertTableWidget(ui.tableWidget_2, randnum);
+			InsertTableWidget(ui.tableWidget_2, randnum);
 			list << randnum;
 		}
 	}
