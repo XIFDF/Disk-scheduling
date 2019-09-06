@@ -26,6 +26,9 @@ public:
 private:
 	Ui::disk_schedulingClass ui;
 
+    void InsertTableWidget(QTableWidget *tableWidget, const int &number);
+    void InsertTableWidget(QTableWidget *tableWidget, QString &number);
+
 private slots:
 	void addid();
 	void setbegin();
