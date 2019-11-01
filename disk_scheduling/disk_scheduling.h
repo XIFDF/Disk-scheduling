@@ -3,12 +3,14 @@
 
 #include <QtWidgets/QMainWindow>
 #include "ui_disk_scheduling.h"
+#include "ShowWidget.h"
 #include <ctime>
 
 class disk_scheduling : public QMainWindow
 {
-	Q_OBJECT
+    Q_OBJECT
 
+    friend ShowWidget;
 public:
 	disk_scheduling(QWidget *parent = 0);
 	~disk_scheduling();
@@ -25,6 +27,7 @@ public:
 
 private:
 	Ui::disk_schedulingClass ui;
+    QWidget * showWidget = nullptr;
 
 	void InsertTableWidget(QTableWidget *tableWidget, const int &number);
 	void InsertTableWidget(QTableWidget *tableWidget, QString &number);
@@ -39,6 +42,7 @@ private slots:
 	void CSCAN();
 	void getnum();
 	void clearall();
+    void showAnimationWidget();
 };
 
 

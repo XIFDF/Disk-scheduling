@@ -29,12 +29,12 @@ disk_scheduling::disk_scheduling(QWidget *parent)
 	connect(ui.radioButton_2, SIGNAL(clicked()), this, SLOT(direction_set()));
 	connect(ui.pushButton_6, SIGNAL(clicked()), this, SLOT(getnum()));
 	connect(ui.pushButton_7, SIGNAL(clicked()), this, SLOT(clearall()));
-
+    connect(ui.pushButton_9, SIGNAL(clicked()), this, SLOT(showAnimationWidget()));
 }
 
 disk_scheduling::~disk_scheduling()
 {
-
+    delete showWidget;
 }
 
 void disk_scheduling::addid() {
@@ -287,5 +287,19 @@ void disk_scheduling::clearall()
 {
 	ui.tableWidget_2->setRowCount(0);
 	list.clear();
+}
+
+void disk_scheduling::showAnimationWidget()
+{
+    if (showWidget == nullptr)
+    {
+        showWidget = new ShowWidget(this);
+        showWidget->setFixedSize(600, 600);
+        showWidget->show();
+    }
+    else
+    {
+        showWidget->show();
+    }
 }
 

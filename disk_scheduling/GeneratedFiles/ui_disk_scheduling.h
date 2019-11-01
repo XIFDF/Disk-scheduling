@@ -53,6 +53,7 @@ public:
     QLabel *label_10;
     QPushButton *pushButton_6;
     QPushButton *pushButton_7;
+    QPushButton *pushButton_9;
     QStatusBar *statusBar;
 
     void setupUi(QMainWindow *disk_schedulingClass)
@@ -134,6 +135,9 @@ public:
         pushButton_7 = new QPushButton(centralWidget);
         pushButton_7->setObjectName(QStringLiteral("pushButton_7"));
         pushButton_7->setGeometry(QRect(600, 60, 61, 28));
+        pushButton_9 = new QPushButton(centralWidget);
+        pushButton_9->setObjectName(QStringLiteral("pushButton_9"));
+        pushButton_9->setGeometry(QRect(510, 310, 141, 41));
         disk_schedulingClass->setCentralWidget(centralWidget);
         statusBar = new QStatusBar(disk_schedulingClass);
         statusBar->setObjectName(QStringLiteral("statusBar"));
@@ -167,6 +171,7 @@ public:
         label_10->setText(QString());
         pushButton_6->setText(QApplication::translate("disk_schedulingClass", "\351\232\217\346\234\272\347\224\237\346\210\220", nullptr));
         pushButton_7->setText(QApplication::translate("disk_schedulingClass", "\346\270\205\347\251\272", nullptr));
+        pushButton_9->setText(QApplication::translate("disk_schedulingClass", "\345\212\250\347\224\273\346\250\241\346\213\237", nullptr));
     } // retranslateUi
 
 };
